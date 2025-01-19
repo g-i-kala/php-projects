@@ -6,12 +6,20 @@
 </head>
 <body>
     <h2>Get in Touch!</h2>
-    <form method="POST" action="contact.php">
+    <form action="send.php" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <br>
+        
+        <?php 
+            if (isset($validation_errors["name"])){
+                echo $validation_errors["name"];
+            };
+        ?> 
+        
+        <br>
         <label for="email">Email:</label>
-        <input typ="text" id="email" name="email" required>
+        <input type="email" id="email" name="email" required>
         <br>
         <label for="subject">Subject:</label>
         <input type="text" id="subject" name="subject" required>
@@ -19,7 +27,7 @@
         <label for="message">Message:</label>
         <textarea id="message" name="message" required></textarea>
         <br>
-        <input type="submit" value="Send">
+        <button type="submit">Send</button> 
     </form>
 </body>
 </html>
