@@ -1,76 +1,76 @@
 # PHP Projects - Portfolio
 
-Welcome to my PHP Projects Portfolio! This repository serves as a central hub showcasing my various PHP projects. Each project is organized in its own directory as a Git submodule, allowing independent development and versioning while maintaining a unified structure for my portfolio.
+Welcome to my PHP Projects Portfolio! This repository serves as a central hub showcasing my various PHP projects. Each project is organized in its own directory, allowing independent development and versioning while maintaining a unified structure for my portfolio.
 
 ## Repository Structure
 
 ```
 php_projects/
-├── project1/   # Submodule for the first PHP project
-├── project2/   # Submodule for the second PHP project
-└── project3/   # Submodule for the third PHP project
+├── project1/   # Directory for the first PHP project
+├── project2/   # Directory for the second PHP project
+└── project3/   # Directory for the third PHP project
 ```
 
 ## Cloning the Repository
 
-To clone this repository along with its submodules, use the following command:
+To clone this repository, use the following command:
 
 ```bash
-git clone --recurse-submodules <repository_url>
+   git clone <repository_url>
 ```
 
-If you have already cloned the repository without submodules, initialize and update them using:
-
-```bash
-git submodule update --init --recursive
-```
+This will clone the entire repository, including all projects organized in their respective directories.
 
 ## Adding a New Project
 
-To add a new PHP project to my portfolio as a submodule:
+To add a new PHP project to my portfolio:
 
-1. Navigate to the repository root directory.
-2. Add the submodule:
+Navigate to the repository root directory.
+Create a new directory for your project:
    ```bash
-   git submodule add <project_repository_url> <directory_name>
+   mkdir <directory_name>
    ```
-3. Commit the changes:
+3. Add your project files into the new directory.
+4. Commit the changes:
    ```bash
-   git commit -m "Added new submodule: <directory_name>"
+   git add <directory_name>
+   git commit -m "Added new project: <directory_name>"
+
    ```
 4. Push the changes to the remote repository:
    ```bash
    git push
    ```
 
-## Updating Submodules
+## Updating Projects
 
-To pull the latest changes for all submodules:
+To pull the latest changes for all projects in the repository, simply run:
 
 ```bash
-git submodule update --remote
+   git pull
 ```
+This will fetch and merge the latest changes from the remote repository.
 
-## Removing a Submodule
+## Removing a Project
 
-To remove a submodule:
+To remove a project:
 
-1. Delete the relevant entry from the `.gitmodules` file.
-2. Remove the submodule directory:
+1. Delete the relevant project directory:
    ```bash
-   git rm --cached <directory_name>
    rm -rf <directory_name>
    ```
-3. Commit and push the changes:
+2. Commit and push the changes:
    ```bash
-   git commit -m "Removed submodule: <directory_name>"
+   git commit -m "Removed project: <directory_name>"
    git push
+
    ```
 
 ## Notes
 
-- Each submodule is an independent Git repository. You can navigate to a submodule's directory and manage it as you would any Git repository.
-- Always commit changes in submodules before updating their references in the parent repository.
+- Each project is contained in its own directory and can be managed independently.
+- Always commit your changes regularly to ensure your projects are up to date in the repository.
+
 
 ## License
 
