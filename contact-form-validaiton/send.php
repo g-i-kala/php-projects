@@ -1,8 +1,10 @@
 
 <?php
+
+/* php check
 echo "PHP script is running.";
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 1); */
 
 $name="";
 $email="";
@@ -50,12 +52,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     };
 
 if (!empty($validation_errors)) {
-    echo "<h2> Validation error(s):</h2>";
-    /*foreach ($validation_errors as $field => $error){
+    include ("contact_form.php");
+   
+   
+    /* echo "<h2> Validation error(s):</h2>";
+    foreach ($validation_errors as $field => $error){
         echo "<br><p><strong>{$field}:</strong>{$error}";
     };*/
     } else {
-        echo "Form send!";
+        $to = "5star@wp.pl";
+        $headers =   "From: ".$name. "\r\n" .
+                    "Reply-To: ".$email. "\r\n" .
+                    "X-Mailer: PHP/" . phpversion();
+        $email_body = "You have received a new message from your contact form.\n\n" .
+                      "Name: $name\n" .
+                      "Email: $email\n" .
+                      "Subject: $subject\n\n" .
+                      "Message:\n$message";"";
+        
+        if (mail($to, $subject, $message, $headers)) {
+            echo "Message sent sucessfuly!";
+        } else {
+            echo "Failed to send the message. Please try again later";
+        }
+       
+    
+        // echo "Message sucessfully send!";
     }   
 
 
