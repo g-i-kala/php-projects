@@ -19,6 +19,7 @@ function sanitize_input($data){
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
+
 //validate name
     $name = sanitize_input($_POST["name"]);
     if (empty($name) || !preg_match("/^[a-zA-Z\s'-]+$/", $name)){
@@ -60,29 +61,54 @@ if (!empty($validation_errors)) {
         echo "<br><p><strong>{$field}:</strong>{$error}";
     };*/
     } else {
-        $to = "5star@wp.pl";
-        $headers =   "From: ".$name. "\r\n" .
+
+         //Secret Key from Google reCAPTCHA
+        $secretKey = "6LfIhr4qAAAAAIxfC-FfAnSzetzeVF-9mLotfkjB";
+        //Get the reCAPTCHA respones from the form
+        $token = $_POST['recaptcha_token'];
+
+        //Verify the reCAPTCHA response
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$token");
+        $responseKeys = json_decode($response);    
+
+        //if valid
+        if ($responseKeys->success && $responseKeys->score >= 0.5) {
+
+            $to = "5star@wp.pl";
+             $headers =   "From: ".$name. "\r\n" .
                     "Reply-To: ".$email. "\r\n" .
                     "X-Mailer: PHP/" . phpversion();
-        $email_body = "You have received a new message from your contact form.\n\n" .
+            $email_body = "You have received a new message from your contact form.\n\n" .
                       "Name: $name\n" .
                       "Email: $email\n" .
                       "Subject: $subject\n\n" .
-                      "Message:\n$message";"";
+                      "Message:\n$message";
         
-        if (mail($to, $subject, $message, $headers)) {
-            echo "Message sent sucessfuly!";
+
+            if (mail($to, $subject, $email_body, $headers)) {
+                    echo "<h2 class='succes__msg'> Message sent sucessfuly!</h2>";
+            } else {
+                    echo "<h2 class='error__msg'>Failed to send the message. Please try again later</h2>";
+                     }
         } else {
-            echo "Failed to send the message. Please try again later";
+            //CAPTCHA failed
+            echo "Please complete the CAPTCHA to submit the form.";
         }
-       
     
         // echo "Message sucessfully send!";
     }   
-
 
 }
 
 //echo "Message Sucessfully Sent!";
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Form Validation</title>
+    <link rel="stylesheet" href="./css/style.css"?v=1.1>
+</head>
+<body>

@@ -1,0 +1,130 @@
+/* Universal Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Root Variables */
+:root {
+    --light-grey: #a9a9a9;
+    --dark-grey: #696969;
+    --green: #88C687;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    color: var(--black);
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--white);
+    background-color: var(--dark-grey);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    text-align: center;
+    color: var(--dark-grey);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Form Container */
+.form_wrapper {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Fields */
+.input_field {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input_field label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.input_field input,
+.input_field textarea {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid var(--dark-grey);
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+}
+
+.input_field input:focus,
+.input_field textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 4px rgba(136, 198, 135, 0.5);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Submit Button */
+button {
+    background-color: var(--green);
+    color: var(--white);
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--dark-grey);
+}
+
+.error__msg {
+    color: red;
+    font-size: 0.8rem;
+}
+
+.success__msg {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--color03); 
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form_wrapper {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+}
