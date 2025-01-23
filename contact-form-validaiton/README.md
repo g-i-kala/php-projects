@@ -8,3 +8,7 @@ Contact Form with Validation
 
 
 *** deployed at https://karocreative.pl/php-projects/contact-form-validation/contact_form.php
+
+Possible improvemnts: 
+- Use PHPMailer for a more secure approach.
+- Backend data validation.
