@@ -7,16 +7,16 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LfIhr4qAAAAAIF5jjv483ya9OB6LGOykMddl-Q1"></script>
 </head>
 <body>
-    <section>
-    <div class="container">
+    <section class="page">
+    <div class="page__container">
         <div class="header__wrapper">
             <h2>Get in Touch!</h2>
         </div>
-        <div class="form_wrapper">
+        <div class="form__wrapper">
             <form class="contact__form" id="contact-form" action="send.php" method="POST">
                 <div class="form__group__wrapper">
                 <label for="name">Name:</label>
-                <input class="input_field" type="text" id="name" name="name" value="<?php echo isset($name) ? htmlspecialchars($name) : ''; ?>" required>
+                <input class="input__field" type="text" id="name" name="name" value="<?php echo isset($name) ? htmlspecialchars($name) : ''; ?>" required>
                 
                 <?php 
                     if (isset($validation_errors["name"])){
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form__group__wrapper">
                 <label for="email">Email:</label>
-                <input class="input_field" type="email" id="email" name="email" value="<?php echo isset($email) ? htmlspecialchars($email) : '';  ?>" required>
+                <input class="input__field" type="email" id="email" name="email" value="<?php echo isset($email) ? htmlspecialchars($email) : '';  ?>" required>
                 
                 <?php 
                 if (!empty($validation_errors["email"])) {
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form__group__wrapper">
                 <label for="subject">Subject:</label>
-                <input class="input_field" type="text" id="subject" name="subject" value="<?php echo isset($subject) ? htmlspecialchars($subject) : '';  ?>" required>
+                <input class="input__field" type="text" id="subject" name="subject" value="<?php echo isset($subject) ? htmlspecialchars($subject) : '';  ?>" required>
                 
                     <?php 
                         if (!empty($validation_errors["subject"])) {
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form__group__wrapper">
                 <label for="message">Message:</label>
-                <textarea class="input_field"  id="message" name="message" value="<?php echo isset($message) ? htmlspecialchars($message) : '';  ?>" required></textarea>
+                <textarea class="input__field"  id="message" name="message" value="<?php echo isset($message) ? htmlspecialchars($message) : '';  ?>" required></textarea>
                 
                     <?php 
                         if (!empty($validation_errors["message"])) {
@@ -55,7 +55,7 @@
                     ?>
                 <br>
                 </div>
-                <div class="form__group__wrapper">
+                <div class="form__group__wrapper form__group__wrapper--send">
                 <button class="btn" type="submit">Send</button> 
                 </div>
         </form>

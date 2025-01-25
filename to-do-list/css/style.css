@@ -22,22 +22,6 @@ body {
     padding: 2rem 1rem;
     color: var(--black);
 }
-.page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-}
-
-.page__container {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    align-items: center;
-    justify-content: center;
-    
-}
 
 h1 {
     text-align: center;
@@ -47,6 +31,7 @@ h1 {
     padding: 1rem;
     border-radius: 5px;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 h2 {
@@ -56,8 +41,37 @@ h2 {
     margin-bottom: 1rem;
 }
 
+.page__container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.table__wrapper {
+    justify-items: center;
+    min-width: 50vw;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.table__style {
+    min-width: 50vw;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form__add__wrapper {
+    width: 100%;
+    justify-items: center;
+}
 /* Form Container */
-.form__wrapper {
+.form_wrapper {
     max-width: 500px;
     width: 100%;
     margin: 0 auto;
@@ -66,29 +80,47 @@ h2 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Form Fields */
-.input__field {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
+.table__column {
+    text-align: center;
+}
+
+.table__column--task {
+    text-align: left;
+}
+
+.form__add__wrapper {
     width: 100%;
-    padding: 0.2rem;
+    justify-content: center;
+}
+.form__add {
+    min-width: 50vw;
+    
+}
+
+.input__field {
+    width: 100%;
+}
+
+.input__field--label {
+    margin:0;
+    color: var(--black);
+}
+
+.input__field input {
+    padding: 0.8rem;
     font-size: 1rem;
     border: 1px solid var(--dark-grey);
     border-radius: 5px;
+    outline: none;
     width: 100%;
 }
 
-textarea {
-    min-height: 100px;
-    resize: vertical;
-}
 
-/* Submit Button */
 button {
     background-color: var(--green);
     color: var(--white);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    margin: 0.5rem 0 0.5rem 0;
     font-size: 1rem;
     border: none;
     border-radius: 5px;
@@ -98,13 +130,6 @@ button {
 
 button:hover {
     background-color: var(--dark-grey);
-}
-
-.form__group__wrapper--send {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
 }
 
 .error__msg {
@@ -121,15 +146,16 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .page__container {
-        width: 100%;
-    }
     .form__wrapper {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     h1 {
         font-size: 1.5rem;
     }
 
+    button {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
 }
