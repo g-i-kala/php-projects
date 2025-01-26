@@ -137,3 +137,18 @@ echo  "================\nThe Sorting Hat!\n================\n\n";
   echo $house . "!\n";
 
 
+/* By nesting 
+Preview: 
+
+Docs An if statement takes an expression as an argument: - If the expression evaluates to true its associated code block executes. - If the expression evaluates to false its associated code block is skipped. php 20) {
+conditionals
+ within one another, we can create branching decisions.
+The logical operator || takes two different boolean values or expressions as its operands and returns a single boolean value. It returns TRUE if either its left operand or its right operand evaluate to TRUE.
+The logical && operator returns TRUE only if both of its operands evaluate to TRUE. It returns FALSE if either or both of its operands evaluate to FALSE.
+The logical not operator (!) takes only a right operand. It reverses the boolean value of its operand.
+The logical exclusive or operator (xor) returns TRUE only if either its left operand or its right operand evaluate to TRUE, but not both or neither.
+PHP includes alternate syntax for the || and && operators: we can use or in place of ||, and we can use and in place of &&. These 
+Preview: Docs Loading link description
+operators
+ work much the same way but have different operator precedence.
+We can include code from one file inside another with include which allows us to write mode modular programs. */
