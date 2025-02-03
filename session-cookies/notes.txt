@@ -1,0 +1,9 @@
+session id
+personalisation
+ex google enalytics
+
+no sensistive info
+max 4kb
+
+delete the cookie -> time - value
+
