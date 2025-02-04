@@ -1,0 +1,61 @@
+[01-Feb-2025 09:40:09 UTC] SQLSTATE[HY000] [1045] Access denied for user 'phpninja'@'localhost' (using password: NO)
+[01-Feb-2025 09:40:36 UTC] SQLSTATE[HY000] [1045] Access denied for user 'phpninja'@'localhost' (using password: NO)
+[01-Feb-2025 10:10:00 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':problem :pPrzyczyna :nowyWzorzec)' at line 1 in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:22
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(22): PDOStatement->execute()
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 22
+[01-Feb-2025 10:15:49 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':problem :pPrzyczyna :nowyWzorzec)' at line 1 in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:22
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(22): PDOStatement->execute()
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 22
+[01-Feb-2025 10:28:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:35
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(35): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 35
+[01-Feb-2025 10:31:40 UTC] PHP Fatal error:  Uncaught TypeError: fgetcsv(): supplied resource is not a valid stream resource in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:25
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(25): fgetcsv(Resource id #52, 1000, ';')
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 25
+[01-Feb-2025 10:35:48 UTC] PHP Fatal error:  Uncaught Error: Call to a member function conn() on null in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:16
+Stack trace:
+#0 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 16
+[01-Feb-2025 10:38:49 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:28
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(28): PDOStatement->execute()
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 28
+[01-Feb-2025 10:39:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:28
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(28): PDOStatement->execute()
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 28
+[01-Feb-2025 10:40:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:28
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(28): PDOStatement->execute()
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 28
+[01-Feb-2025 10:43:07 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1 in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:28
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(28): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 28
+[01-Feb-2025 10:45:20 UTC] PHP Fatal error:  Uncaught TypeError: fgetcsv(): supplied resource is not a valid stream resource in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:18
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(18): fgetcsv(Resource id #52, 1000, ';')
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 18
+[01-Feb-2025 10:46:37 UTC] PHP Fatal error:  Uncaught TypeError: fgetcsv(): supplied resource is not a valid stream resource in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:18
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(18): fgetcsv(Resource id #52, 1000, ';')
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 18
+[01-Feb-2025 10:46:51 UTC] PHP Fatal error:  Uncaught TypeError: fgetcsv(): supplied resource is not a valid stream resource in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php:18
+Stack trace:
+#0 /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php(18): fgetcsv(Resource id #52, 1000, ';')
+#1 {main}
+  thrown in /Volumes/data/dev/php-projects/affimation-explorer/sql-data-import.php on line 18

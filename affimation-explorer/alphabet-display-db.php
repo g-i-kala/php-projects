@@ -3,22 +3,25 @@
 include 'db.php';
 include 'helpers.php';
 
-if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["problem"])){
+if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["letter"])){
     try {
         //fetch problem from the form
-        $problem = $_POST["problem"];
+        $letter = $_GET["letter"];
         
-        //remove pl2small
-        $problem_formatted = removePolishSmallChars($problem);
-
-        $query = 'SELECT * FROM afirmacje WHERE problemFormat LIKE :problem';
+        //sanitize the letter 
+        if (preg_match("/[^a-zA-Z]/", $letter) || strlen($letter) > 1) {
+            echo "Co Ty kombinujesz rzezimieszku! Proszę wprowadzić literę od A - Z.";
+            exit();
+        }
+        
+        $query = 'SELECT * FROM afirmacje WHERE problemFormat LIKE :letter';
         $problemQuery = $conn->prepare($query);
-        $problemQuery->execute(['problem' => '%' . $problem_formatted . '%']);
+        $problemQuery->execute(['letter' => $letter . '%']);
 
         $problemy = $problemQuery->fetchAll(PDO::FETCH_ASSOC);
 
         if (count($problemy) > 0) {
-            echo "<h2> Wyniki dla: $problem </h2>";
+            echo "<h2> Wyniki dla: $letter </h2>";
             echo "<table border =1> 
                     <tr>
                         <th>Problem</th>
@@ -34,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["problem"])){
             }
             echo "</table>";
         } else {
-            echo "<p>Nie mam dopasowań dla " . htmlspecialchars($problem) . ". Spróbój inaczej nazwać problem.</p>";
+            echo "<p>Nie mam dopasowań dla " . htmlspecialchars($letter) . ". Spróbój inaczej nazwać problem.</p>";
         }
         
     } catch (Exception $e) {
