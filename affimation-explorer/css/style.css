@@ -1,0 +1,148 @@
+/* Universal Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Root Variables */
+:root {
+    --light-grey: #a9a9a9;
+    --dark-grey: #696969;
+    --green: #88C687;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    color: var(--black);
+}
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+}
+
+.page__container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--white);
+    background-color: var(--dark-grey);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    text-align: center;
+    color: var(--dark-grey);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.sec_margin {
+    margin: 2rem 0;
+
+}
+
+/* Form Container */
+.form__wrapper {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Fields */
+.input__field {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.2rem;
+    font-size: 1rem;
+    border: 1px solid var(--dark-grey);
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Submit Button */
+button {
+    background-color: var(--green);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--dark-grey);
+}
+
+.alphabetical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.alphabet__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.alphabet__links a {
+    color: var(--dark-grey);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.alphabet__links a:hover{
+    color: var(--green);
+}
+
+.table__cell {
+    padding: 0.5rem;
+    border: 1px solid var(--dark-grey);
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page__container {
+        width: 100%;
+    }
+    .form__wrapper {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+}

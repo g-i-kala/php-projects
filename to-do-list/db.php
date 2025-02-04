@@ -1,9 +1,4 @@
 <?php
-/*$servername = "localhost";
-$username = "root";
-$password = "kupadupa27Mysql!";
-$dbname = "todolist"; */
-
 // Load .env variables
 require __DIR__.'/vendor/autoload.php';
 
