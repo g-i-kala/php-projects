@@ -1,7 +1,5 @@
 <?php
 
-use Dom\HTMLElement;
-
 include 'db.php';
 
 //fetch tasks and display
@@ -27,7 +25,10 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css"?v=1.1>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Todo List</title>
+
+</head>
     <div class="page__container">
         <h1>ToDo List</h1>
             <div class="table__wrapper">
@@ -38,44 +39,95 @@ if ($result->num_rows > 0) {
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
-                <?php 
-                    $row_count = 1;
-                    foreach ($table_data as $row): ?>
-                    <tr class="table__row">
-                        <td class="table__column"><?php echo $row_count?></td>
-                        <td class="table__column table__column--task"><?php echo htmlspecialchars($row['task'])?></td>
-                        <td class="table__column">
-                            <!-- show status with checkbox -->
-                            <form action="update_task.php" method="POST" name="status">
-                                <input type="hidden" name="task_id" value="<?php echo $row['task_id'] ?>">
-                                <input type="checkbox" name="is_completed" value="1"
-                                    <?php echo $row['is_completed'] ? 'checked' : '';?>
-                                    onchange="this.form.submit()">  
-                            </form>
-                        </td>
-                        <td class="table__column">
-                            <!-- delete task handling -->
-                            <form action="delete_task.php" method="POST" name="delete_task" >
-                                <input type="hidden" name="task_id" value="<?php echo $row['task_id'] ?>" class="input__field">
-                                <button class="btn" type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr> 
-                <?php 
-                    $row_count+=1;
-                    endforeach; ?>
+                <tbody id='task_table'>
+                    
+                    <!-- dynamic table here -->
+                </tbody>
             </table>
             <div class="form__add__wrapper">
                  <!-- add task handling -->
-                <form action="add_task.php" method="POST" id="add_task" class="form__add">
+                <form id="add_task_form" class="form__add">
                     <label for="task" class="input__field--label">Task</label>
                     <input type="text" id="task" name="task" class="input__field" required>
                     <button class="btn" type="submit">Add task</button>
                 </form>
             </div>
+            
+        <script>
+             $(document).ready(function(){
+                //fetch tasks
+                function fetch_tasks(){
+                    $.ajax({
+                        url: 'fetch_tasks.php',
+                        type: 'GET',
+                        success: function(response){
+                            $('#task_table').html(response);
+                        },
+                        error: function(error){
+                            console.error("Error loading tasks:", error);
+                        }
+                    });
+                }
+                fetch_tasks();
+
+                //add task
+                $('#add_task_form').submit(function(e){
+                    e.preventDefault();
+                    let task_value = $('#task').val();
+                    $.ajax({
+                        url: 'add_task.php',
+                        type: 'POST',
+                        data: {task: task_value},
+                        success: function(response){
+                            fetch_tasks();
+                            $('#task').val('');
+                        },
+                        error: function(error){
+                            console.error("Error adding task:", error);
+                        }
+                    });
+                });
+
+                //update task
+                $(document).on('change', '.task-checkbox', function(){
+                    let task_id = $(this).data('id');
+                    let is_completed = $(this).is(':checked') ? 1 : 0;
+
+                    $.ajax({
+                        url: 'update_task.php',
+                        type: 'POST',
+                        data: {task_id: task_id, is_completed: is_completed},
+                        success: function(response){
+                            fetch_tasks();
+                        },
+                        error: function(xhr, status, error){
+                            console.error("Error updating task:", error);
+                        }
+                    })
+                });
+
+                //delete task
+                $(document).on('click', '.delete-btn', function(){
+                    let task_id = $(this).data('id');
+
+                    $.ajax({
+                        url: 'delete_task.php',
+                        type: 'POST',
+                        data: {task_id: task_id},
+                        success: function(response){
+                            fetch_tasks();
+                        }, 
+                        error: function(error){
+                            console.error("Error deleting task:", error);
+                        }
+                    })
+                })
+             });
+        </script>
+
     </div>
     </div>
-</head>
+
 <body>
     
 </body>
