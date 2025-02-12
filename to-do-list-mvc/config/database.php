@@ -1,12 +1,25 @@
 <?php
 
+require __DIR__ . '/../vendor/autoload.php';
+
+use Dotenv\Dotenv;
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
 class Database {
-    private $host = "localhost";
-    private $dbname = "todolist";
-    private $username = "root";
-    private $password = "kupadupa27Mysql!";
+    private $host;
+    private $dbname;
+    private $username;
+    private $password;
     private $charset = 'utf8mb4';
     public $conn;
+
+    public function __construct() {
+        $this->host = $_ENV['DB_HOST'];
+        $this->dbname = $_ENV['DB_NAME']; 
+        $this->username = $_ENV['DB_USER'];
+        $this->password = $_ENV['DB_PASS'];
+    }
 
     public function connect() {
         $this->conn = null;
