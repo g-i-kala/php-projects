@@ -1,0 +1,17 @@
+/* Universal Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    color: black;
+}
+
+

@@ -23,14 +23,14 @@ $(document).ready(function() {
         tableBody.empty();  // Clear the existing rows
 
         tasks.forEach((task, index) => {
-            let taskRow = `<tr>
-                <td>${index + 1}</td>
-                <td>${task.task}</td>
-                <td>
+            let taskRow = `<tr class="border border-gray-300">
+                <td class="border border-gray-300">${index + 1}</td>
+                <td class="text-left px-2">${task.task}</td>
+                <td class="border border-gray-300">
                     <input type="checkbox" class="task-checkbox" data-id="${task.task_id}" ${task.is_completed ? 'checked' : ''}>
                 </td>
-                <td>
-                    <button class="delete-btn" data-id="${task.task_id}">Delete</button>
+                <td class="border border-gray-300">
+                    <button class="delete-btn mt-1 mb-1 bg-blue-500 hover:bg-red-500 text-white font-semibold w-fix m-auto py-1 px-2 rounded" data-id="${task.task_id}">Delete</button>
                 </td>
             </tr>`;
             tableBody.append(taskRow);  // Append the new row to the table
@@ -52,9 +52,12 @@ $(document).ready(function() {
                 fetchTasks();
                 $('#task').val(''); // Clear the input field
             },
-            error: function(xhr, status, error) {
-                console.error("Error adding task:", error);
-            }
+            error: function(xhr) {
+                if (xhr.status === 400) {
+                alert("Task limit reached (20).");
+            } else {
+                console.log("Error adding task:", xhr.responseText);
+            }}
         });
     });
 

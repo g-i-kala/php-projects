@@ -18,6 +18,18 @@ class Task {
     }
 
     public function addTask($task) {
+        // Count current tasks
+        $countQuery = "SELECT COUNT(*) as total FROM " . $this->table;
+        $stmt = $this->conn->prepare($countQuery);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result['total'] >= 20) {
+            return false; // Block adding more tasks
+        }
+
+        // If under limit, insert new task
+
         $query = "INSERT INTO " . $this->table . " (task) VALUES (:task)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":task", $task);

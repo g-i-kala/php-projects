@@ -21,7 +21,12 @@ class TaskController {
         // echo "addTask method triggered!";
         // echo $_POST['task'];
         if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST['task'])) {
-            $this->taskModel->addTask($_POST['task']);
+            $taskAdded = $this->taskModel->addTask($_POST['task']);
+
+            if (!$taskAdded) {
+                http_response_code(400);
+                echo "Task limit reached.";
+            }
         }
     }
 
