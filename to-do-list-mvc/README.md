@@ -7,4 +7,3 @@ ToDo List - MVC version
 - Style and pleasant basic UX/UI with tailwind css.
 - Task limit = 20.
 
-*** deployed at https://karocreative.pl/php-projects/to-do-list-mvc/ ***
