@@ -4,7 +4,8 @@ Affirmations Explorer based on Luise Hay "You Can Heal Your Body"
 - Search according to entered problem, display
 - Dispaly additional alphabetical browsing
 - AJAX use
-- Style and pleasant basic UX/UI 
+- Style and pleasant basic UX/UI
+- AI Data Extraction for the database population
 
 *** deployed at https://karocreative.pl/php-projects/affirmation-explorer/index.php ***
 
